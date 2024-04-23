@@ -20,22 +20,31 @@
 </head>
 
 <body>
-      <div class ="redact-post" style="position:absolute; top:170px; left:700px;">
-        <h2>{% if id %} Редактировать {% else %} новое {% endif %} форму</h2>
-          <form method="post" novalidate>
-            {% csrf_token %} 
-            {{ form.as_p }}
-                  <div class = "form-buttons">
-                    <input type="submit" value="Сохранить" class ="button"/>
-                  </div>
-          </form>
-
-          <!-- Кнопка "Назад" -->
-          <a href="{% url 'myposts' %}" class="back">
-            <img class="mx-1" src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png"  width="32" height="32">
-            Назад
-        </a>
-      </div>     
+  <main>
+    <div class = "redact">
+      <div class = "right">
+        <img class = "rightHalf" src="{% static 'img/register.login.png' %}" alt="Регистрация" width = "1500">
+      </div> 
+      <div class ="left">
+        <div class ="redact-post">
+          <h1 class = "form-title">{% if id %} Редактирование {% else %} новое {% endif %} объявления</h1>
+            <form method="post" novalidate>
+              {% csrf_token %} 
+              {{ form.as_p }}
+                <div class = "form-buttons">
+                  <input type="submit" value="Сохранить" class ="submit"/>
+                  <!-- Кнопка "Назад" -->
+                  <a href="{% url 'myposts' %}" class="back">
+                    <img class="mx-1" src="https://cdn-icons-png.flaticon.com/512/2223/2223615.png"  width="32" height="32">
+                    Назад
+                  </a>
+                </div>
+                  <img class = "end" src = "{% static 'img/logo.png'%}" width = "300">
+            </form>
+        </div>  
+      </div>
+    </div>
+  </main>   
 </body>
 </html>
 {% endblock content %}

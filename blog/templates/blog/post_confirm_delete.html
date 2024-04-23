@@ -20,22 +20,31 @@
 </head>
 
 <body>
-  <div class ="delete-post" style="position:absolute; top:300px; left:700px;">
-    <h2>Удалить форму</h2>
+  <main>
+    <div class = "delete">
+      <div class = "right">
+        <img class = "rightHalf" src="{% static 'img/register.login.png' %}" alt="Регистрация" width = "1500">
+      </div> 
+      <div class ="left">
+        <div class ="delete-post">
+          <h1 class = "form-title">Удаление объявления</h1>
 
-    <form method="POST">
-      {% csrf_token %}
-      <p>Вы уверены, что хотите удалить форму "{{post.title}}"?</p>
-      <div>
-        <div class = "form-buttons">
-          <input type="submit" value="Да, удалить" class ="button"/>
+          <form method="POST">
+            {% csrf_token %}
+            <p class = "text">Вы уверены, что хотите удалить объявление?</p>
+            <div>
+              <div class = "form-buttons">
+                <input type="submit" value="Да, удалить" class ="submit"/>
+              <a href="{% url 'myposts' %}" class="no">
+                Отмена
+                <img class="mx-1" src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png"  width="24" height="24">
+              </a>
+            </div>
+            </div>
+          </form>
         </div>
-        <a href="{% url 'myposts' %}" class="no">
-          Отмена
-          <img class="mx-1" src="https://cdn-icons-png.flaticon.com/512/2961/2961937.png"  width="24" height="24">
-        </a>
       </div>
-    </form>
-  </div>
+    </div>
+  </main>
 </body>
 {% endblock content %}

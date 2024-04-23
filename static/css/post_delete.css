@@ -1,3 +1,10 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: .5s ease-in-out;
+    /* добавим плавность переходов для всех элементов страницы*/
+}
 @font-face {
 	font-family: 'BOWLER'; 
 	src: local('BOWLER'),
@@ -10,91 +17,102 @@
 		url(/font/OFL.ttf); 
 }
 
-* {
+body{
+    max-width: 100%;
     box-sizing: border-box;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
+	background-color: white;
+    overflow-x: hidden;
 }
 
-body {
-    background: white;
-    height: 100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.delete {
+    margin: 0 auto;
+    max-width: 100%;
+    max-width: 1900px;
+    padding: 0;
 }
 
-h2 {
-    text-align: center;
-}
-
-.delete-post {
-    font-family: Montserrat;
-    opacity: 0;
+.right {
     position: relative;
-    top: 70px;
-    z-index: 2;
-    max-width: 415px;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0px 6px 50px rgba(168,228,160);
-    border-radius: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 38px;
-    padding-bottom: 38px;
-    animation-name: fadeForm;
-    animation-duration: .7s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    float: right;
+    background-size: 100% 100%;
+    max-width: 60%;
+}
+.right:before{
+    position: absolute; top: 0; right: 0;
+    float: right;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
 }
 
-@keyframes fadeForm{
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: .25;
-    }
-    50% {
-        opacity: .5;
-    }
-    75% {
-        opacity: .75;
-    }
-    100% {
-        opacity: 1;
-    }
+.left {
+    float: left;
+    transform: translate(40%, 130%);
 }
 
-.button  {
-    
-    position: absolute;
+
+.form-title {
+    color: #20293D;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.text {
     font-size: 20px;
-    height: 50px;
-    size: 60px;
-    background-color: white;
-    border: 2px solid #E5E4E2;
-    border-radius: 5px;
-    color: black;
-    text-align: center; 
-    text-decoration: none; 
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;  
-    margin: 0 auto; /*отцентрирует блок по центру родительского элемента */
+    margin-bottom: 10px;
+}
+.form-buttons {
+    margin: 0 auto;
     display: block;
+}
+.submit {
+    background-color: #B3D131;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 20px;
+    border: 1px solid #B3D131;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.mx-1 {
+    margin: 10px;
+    transform: translateY(60%);
 }
 
 .no {
-    margin-top: 10px;
-    font-size: 20px;
     color: black;
-    text-decoration: none;
-    float: right;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+
+@media (max-width: 1500px) {
+    .left {
+        transform: translate(20%, 80%);
+    }
+}
+
+@media (max-width: 1350px) {
+    .left {
+        transform: translate(10%, 50%);
+    }
+}
+@media (max-width: 1180px) {
+    .left {
+        transform: translate(5%,80%);
+    }
+}
+@media (max-width: 1125px) {
+    .right {
+        display: none;
+    }
+    main {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

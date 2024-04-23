@@ -1,3 +1,10 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: .5s ease-in-out;
+    /* добавим плавность переходов для всех элементов страницы*/
+}
 @font-face {
 	font-family: 'BOWLER'; 
 	src: local('BOWLER'),
@@ -9,102 +16,140 @@
 	src: local('OFL'),
 		url(/font/OFL.ttf); 
 }
-
-* {
+body{
+    max-width: 100%;
     box-sizing: border-box;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
+	background-color: #F6F6F6;
+    overflow-x: hidden;
+}
+
+.redact {
+    margin: 0 auto;
+    max-width: 100%;
+    max-width: 1900px;
+    padding: 0;
+}
+
+.right {
+    position: relative;
+    float: right;
+    background-size: 100% 100%;
+    max-width: 60%;
+}
+.right:before{
+    position: absolute; top: 0; right: 0;
+    float: right;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+}
+
+.left {
+    float: left;
+    transform: translate(20%, 30%);
 }
 
 input {
     height: 45px;
-    width: 100%;
+    width: 50%;
     color: black;
     font-size: 14px;
     line-height: 16px;
-    border: 2px solid #E5E4E2;
+    border: 1px solid #B5B5B5;
     border-radius: 5px;
     padding-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-body {
-    background: white;
-    height: 100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.form-title {
+    color: #20293D;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-h2 {
+p {
+    /* font-size: 14px; */
+    font-weight: 400;
+    margin-bottom: 0px;  
+}
+.form-buttons {
+    margin: 10px;
+}
+.submit {
+    width: 30%;
+    background-color: #B3D131;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
     text-align: center;
+    border: #B3D131;
+    margin: 0 auto;
 }
 
-.redact-post {
-    font-family: Montserrat;
-    opacity: 0;
-    position: relative;
-    top: 70px;
-    z-index: 2;
-    max-width: 415px;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0px 6px 50px rgba(168,228,160);
-    border-radius: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 38px;
-    padding-bottom: 38px;
-    animation-name: fadeForm;
-    animation-duration: .7s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 0s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+#id_training_date_day, #id_training_date_month, #id_training_date_year, #id_court, #id_prefernces {
+    margin: 5px;
+    font-size: 20px;
+}
+#id_training_time {
+    margin: 5px;
+    max-width: 30%;
+}
+select {
+    min-width: 10%;
+    max-width: 40%;
+    margin: 5px;
+    font-size: 16px;
 }
 
-@keyframes fadeForm{
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: .25;
-    }
-    50% {
-        opacity: .5;
-    }
-    75% {
-        opacity: .75;
-    }
-    100% {
-        opacity: 1;
-    }
+textarea {
+    display:block;
+    margin: 5px;
 }
-
-.button  {
-    width: max-content;
-    position: absolute;
-    font-size: large;
-    height: 50px;
-    size: 60px;
-    background-color: white;
-    border: 2px solid #E5E4E2;
-    border-radius: 5px;
-    color: black;
-    text-align: center; 
-    text-decoration: none; 
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;  
-    margin: 0 auto; /*отцентрирует блок по центру родительского элемента */
-    display: block;
-}
-
-.back {
+.back {   
     font-size: 20px;
     color: black;
-    text-decoration: none;
-    float: right;
+    margin-left: 20px;
+}
+.back img {
+    transform: translateY(60%);
+}
+
+.mx-1 {
+    margin: 10px;
+}
+
+@media (max-width: 1590px) {
+    .left {
+        transform: translate(5%, -150%);
+    }
+}
+
+@media (max-width: 1410px) {
+    .left {
+        transform: translate(5%, -150%);
+    }
+    .form-title {
+        font-size: 32px;
+    }
+}
+@media (max-width: 1265px) {
+    .left {
+        transform: translate(2%,-150%);
+    }
+}
+@media (max-width: 1206px) {
+    .right {
+        display: none;
+    }
+    main {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .left {
+        transform: translate(20%, 5%);
+    } 
 }
